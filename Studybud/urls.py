@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('Maalik/', admin.site.urls),
     path('projects/', include('projects.urls')),
     path('', include('users.urls')),
 
