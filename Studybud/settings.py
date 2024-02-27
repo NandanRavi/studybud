@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z95m5i!vt+_0_t(h0z46w9%le3dee13=^%w2pmhjwy1o$c(a2_'
+SECRET_KEY = os.environ['DJANOG_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [".vercel.app", '.now.sh']
 # Application definition
 
 INSTALLED_APPS = [
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'rest_framework',
     'corsheaders',
+    'cloudinary',
 ]
 
 REST_FRAMEWORK = {
@@ -190,8 +192,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'bibhu9801@gmail.com'
-EMAIL_HOST_PASSWORD = 'lgqerdflqwkykuik'
+EMAIL_HOST_USER = os.environ['DJANGO_EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['DJANGO_EMAIL_HOST_PASSWORD']
 
 
 # Static files (CSS, JavaScript, Images)
@@ -216,8 +218,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary Configuration
 cloudinary.config(
-    cloud_name = "dzgo6p5ob",
-    api_key = "649326297646424",
-    api_secret = "vEqrvAgmBEh9QbusajObpa2_Eog",
+    cloud_name = os.environ['DJANGO_CLOUD_NAME'],
+    api_key = os.environ['DJANGO_API_KEY'],
+    api_secret = os.environ['DJANGO_API_SECRET'],
 
 )
