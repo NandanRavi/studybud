@@ -15,7 +15,9 @@ from pathlib import Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['DJANOG_SECRET_KEY']
+SECRET_KEY = os.getenv['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -140,10 +142,10 @@ WSGI_APPLICATION = 'Studybud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['POSTGRES_DATABASE'],
-        'USER':os.environ['POSTGRES_USER'],
-        'PASSWORD':os.environ['POSTGRES_PASSWORD'],
-        'HOST':os.environ['POSTGRES_HOST'],
+        'NAME': os.getenv['POSTGRES_DATABASE'],
+        'USER':os.getenv['POSTGRES_USER'],
+        'PASSWORD':os.getenv['POSTGRES_PASSWORD'],
+        'HOST':os.getenv['POSTGRES_HOST'],
         'PORT':'5432',
     }
 }
@@ -192,8 +194,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ['DJANGO_EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = os.environ['DJANGO_EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = os.getenv['DJANGO_EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.getenv['DJANGO_EMAIL_HOST_PASSWORD']
 
 
 # Static files (CSS, JavaScript, Images)
@@ -218,8 +220,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Cloudinary Configuration
 cloudinary.config(
-    cloud_name = os.environ['DJANGO_CLOUD_NAME'],
-    api_key = os.environ['DJANGO_API_KEY'],
-    api_secret = os.environ['DJANGO_API_SECRET'],
+    cloud_name = os.getenv['DJANGO_CLOUD_NAME'],
+    api_key = os.getenv['DJANGO_API_KEY'],
+    api_secret = os.getenv['DJANGO_API_SECRET'],
 
 )
