@@ -30,8 +30,8 @@ SECRET_KEY = os.environ['DJANOG_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = [".vercel.app", '.now.sh']
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".vercel.app", '.now.sh']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
