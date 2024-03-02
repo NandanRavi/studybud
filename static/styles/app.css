@@ -43,8 +43,8 @@ img {
 }
 
 .header__logo > img {
-  height: 10rem;
-  width: 15rem;
+  max-height: 17rem;
+  width: 20rem;
 }
 
 .header__nav > ul {
@@ -77,11 +77,30 @@ img {
   object-fit: cover;
 }
 
+
+@media screen and (min-width: 800px){
+  .header__logo > .pixel2{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .header__logo {
     position: relative;
     z-index: 999;
   }
+
+  .header__logo > img {
+    height: 7.5rem;
+    width: 8rem;
+    border-radius: 50%;
+  }
+
+  .header__logo > .pixel1{
+    display: none;
+  }
+
+
   .toggle-menu {
     position: relative;
   }
